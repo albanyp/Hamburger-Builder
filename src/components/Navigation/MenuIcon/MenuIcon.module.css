@@ -1,0 +1,18 @@
+.Icon {
+  background-color: #cf8f2e;
+  height: 1.5px;
+  width: 24px;
+  margin: 5px 3px;
+}
+
+.IconContainer {
+  border: 0.5px solid white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+@media (min-width: 500px) {
+  .IconContainer {
+    display: none;
+  }
+}
