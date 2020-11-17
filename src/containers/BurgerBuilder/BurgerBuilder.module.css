@@ -1,0 +1,18 @@
+.BurgerBuilderLayout {
+  margin-top: 36px;
+  display: flex;
+}
+
+@media (max-width: 499px) {
+  .BurgerBuilderLayout {
+    flex-direction: column-reverse;
+  }
+
+  .BuildControlsLayout {
+    width: 100%;
+  }
+
+  .BurgerLayout {
+    width: 100%;
+  }
+}

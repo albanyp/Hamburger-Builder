@@ -50,7 +50,7 @@ const App = (props) => {
     } 
 
     return (
-      <div>
+      <div className="App">
         <Layout>
           <Suspense fallback={<p>Loading ... </p>}>
             {routes}

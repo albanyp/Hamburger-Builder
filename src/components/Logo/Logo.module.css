@@ -1,11 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
 .Logo {
-  background-color: white;
-  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 80%;
-  box-sizing: border-box;
+  background-color: white;
   border-radius: 5px;
+  box-sizing: border-box;
+  padding: 4px;
 }
 
 .Logo img {
+  padding: 6px;
   height: 100%;
+}
+
+.Title {
+  margin: 0px;
+  padding: 3px 8px 0px 6px;
+  font-size: 30px;
+  font-family: "Bebas Neue", cursive;
+  font-weight: bold;
+  color: #414141;
+}
+
+@media (max-width: 499px) {
+  .Title {
+    font-size: 20px;
+    padding: 3px 2px 0px;
+  }
+
+  .Logo img {
+    padding: 10px 2px;
+    height: 100%;
+  }
 }

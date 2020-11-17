@@ -9,6 +9,7 @@ import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
 import Spinner from "../../components/UI/Spinner/Spinner.js";
 import WithErrorHandler from "../../hoc/WithErrorHandler/WithErrorHandler";
 import * as actions from "../../store/actions/index";
+import classes from "./BurgerBuilder.module.css";
 
 const BurgerBuilder = ( props ) => {
   const [purchasing, setPurchasing] = useState(false);
@@ -87,8 +88,7 @@ const BurgerBuilder = ( props ) => {
 
     if (ings) {
       burger = (
-        <Aux>
-          <Burger ingredients={ings} />
+        <div className={classes.BurgerBuilderLayout}>
           <BuildControls 
             ingredientAdded={onIngredientAdded}
             ingredientRemoved={onIngredientDeleted}
@@ -97,8 +97,13 @@ const BurgerBuilder = ( props ) => {
             purchasable={updatePurchase(ings)}
             ordered={purchaseHandler}
             isAuth={isAuthenticated}
+            className={classes.BuildControlsLayout}
           />
-        </Aux>
+          <Burger 
+            ingredients={ings} 
+            className={classes.BurgerLayout}
+          />
+        </div>
       );
       orderSummary = (
         <OrderSummary
@@ -114,7 +119,7 @@ const BurgerBuilder = ( props ) => {
     }
 
     return (
-      <Aux>
+      <div>
         <Modal
           show={purchasing}
           modalClosed={purchaseCancelHandler}
@@ -122,7 +127,7 @@ const BurgerBuilder = ( props ) => {
           {orderSummary}
         </Modal>
         {burger}
-      </Aux>
+      </div>
     );
   }
 

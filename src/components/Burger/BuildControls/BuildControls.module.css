@@ -1,39 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400;500;600&display=swap");
+
 .BuildControls {
-  width: 100%;
-  background-color: #cf8f2e;
+  background-color: #f2f2f2;
   display: flex;
   flex-flow: column;
+  justify-content: center;
   align-items: center;
   box-shadow: 0 2px 1px #ccc;
-  margin: auto;
+  width: 50%;
+  height: calc(100vh - 56px);
+  margin: 0;
   padding: 10px 0px;
 }
 
+.BuildControlsTitleContainer {
+  display: flex;
+  justify-content: start;
+  width: 80%;
+}
+
+.BuildControlsTitle {
+  align-self: left;
+  text-align: left;
+  color: #414141;
+  font-size: 50px;
+  font-weight: 600;
+  font-family: "Caveat", cursive;
+  padding: 0px 16px;
+}
+
+.Price {
+  margin: 18px 0px 0px 0px;
+}
+
 .OrderButton {
-  background-color: #dad735;
+  background-color: #d93232;
   outline: none;
   cursor: pointer;
-  border: 1px solid #966909;
-  color: #966909;
+  border: 1px solid #d93232;
+  color: white;
   font-family: inherit;
+  font-weight: bold;
   font-size: 1.2em;
-  margin: 2px 0;
+  margin: 26px 0;
   padding: 15px 30px;
-  box-shadow: 2px 2px 2px #966909;
+  box-shadow: 2px 2px 2px #a41406;
 }
 
 .OrderButton:hover,
 .OrderButton:active {
-  background-color: #a0db41;
-  border: 1px solid #966909;
-  color: #966909;
+  color: white;
+  transform: scale(1.07);
+  background-color: #ffff00;
+  border: 1px solid #d93232;
 }
 
 .OrderButton:disabled {
-  background-color: #c7c6c6;
-  cursor: not-allowed;
-  border: 1px solid #ccc;
-  color: #888888;
+  background-color: #d93232;
+  cursor: pointer;
+  border: 1px solid #a41406;
+  color: #ffffff;
 }
 
 .OrderButton:not(:disabled) {
@@ -49,5 +75,17 @@
   }
   100% {
     transform: scale(1);
+  }
+}
+
+@media (max-width: 499px) {
+  .BuildControls {
+    width: 100%;
+    height: 110vh;
+  }
+
+  .BuildControlsTitleContainer {
+    margin: 0px;
+    padding: 0px;
   }
 }
