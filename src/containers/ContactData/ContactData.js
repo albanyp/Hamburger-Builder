@@ -1,4 +1,15 @@
 import React, { useState } from "react";
+import { Redirect, useHistory } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { 
+  faMotorcycle, 
+  faUserCheck,
+  faRoad,
+  faMapMarkedAlt,
+  faMobileAlt,
+  faBicycle,
+} from '@fortawesome/free-solid-svg-icons'
+
 import Button from "../../components/UI/Button/Button";
 import classes from "./ContactData.module.css";
 import Spinner from "../../components/UI/Spinner/Spinner";
@@ -11,6 +22,7 @@ import * as actions from "../../store/actions/index";
 
 
 const ContactData = (props) => {
+  const history = useHistory();
   const [orderForm, setOrderForm] = useState({ 
     name: {
       elementType: "input",
@@ -24,6 +36,7 @@ const ContactData = (props) => {
       },
       valid: false,
       touched: false,
+      icon: faUserCheck,
     },
     street: {
       elementType: "input",
@@ -37,6 +50,7 @@ const ContactData = (props) => {
       },
       valid: false,
       touched: false,
+      icon: faRoad,
     },
     zipCode: {
       elementType: "input",
@@ -53,32 +67,23 @@ const ContactData = (props) => {
       },
       valid: false,
       touched: false,
+      icon: faMapMarkedAlt,
     },
-    country: {
+    phone: {
       elementType: "input",
       elementConfig: {
-        type:"text",
-        placeholder: "Country"
+        type:"number",
+        placeholder: "Phone Number"
       },
       value: "",
       validation: {
         required: true,
+        minLength: 10,
+        maxLength: 10,
       },
       valid: false,
       touched: false,
-    },
-    email: {
-      elementType: "input",
-      elementConfig: {
-        type:"text",
-        placeholder: "Your E-Mail"
-      },
-      value: "",
-      validation: {
-        required: true,
-      },
-      valid: false,
-      touched: false,
+      icon: faMobileAlt,
     },
     deliveryMethod: {
       elementType: "select",
@@ -89,6 +94,7 @@ const ContactData = (props) => {
       value: "Fastest",
       validation: {},
       valid: true,
+      icon: faBicycle,
     },
   });
   
@@ -109,6 +115,7 @@ const ContactData = (props) => {
     };
       
     props.onOrderBurger(order, props.token);
+    history.push("/");
   };
 
   const formElementsArray = [];
@@ -139,16 +146,17 @@ const ContactData = (props) => {
   
       setOrderForm(updatedOrderForm);
       setFormIsValid(formIsValid);
-
-      // console.log("Pls: ", orderForm);
-      // console.log("Show: ", formIsValid);
     }  
 
     let form = (
-      <form onSubmit={orderHandler}>
+      <form 
+        className={classes.FormContainer}
+        onSubmit={orderHandler}
+      >
         {formElementsArray.map(formElement => (
           <Input 
             key={formElement.id}
+            icon={formElement.config.icon}
             elementType={formElement.config.elementType}
             elementConfig={formElement.config.elementConfig}
             value={formElement.config.value} 
@@ -168,10 +176,18 @@ const ContactData = (props) => {
       form = <Spinner />;
     }
 
+    const iconStyle = {color: "#f2a30f", fontSize: "32px"}
+
     return (
-      <div className={classes.ContactData}>
-        <h4>Enter your Contact Data</h4>
-        {form}
+      <div className={classes.ContactDataContainer}>
+        <div className={classes.ContactData}>
+          <div className={classes.FormTitle}>You're almost there!</div>
+            <FontAwesomeIcon 
+              icon={faMotorcycle} 
+              style={iconStyle}
+            />
+          {form}
+        </div>
       </div>
     );
   }

@@ -15,7 +15,7 @@
 
 .BuildControlsTitleContainer {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   width: 80%;
 }
 
@@ -43,15 +43,15 @@
   font-weight: bold;
   font-size: 1.2em;
   margin: 26px 0;
-  padding: 15px 30px;
+  padding: 15px 40px;
   box-shadow: 2px 2px 2px #a41406;
+  border-radius: 10px 0px 10px 0px;
 }
 
 .OrderButton:hover,
 .OrderButton:active {
   color: white;
   transform: scale(1.07);
-  background-color: #ffff00;
   border: 1px solid #d93232;
 }
 
@@ -81,11 +81,17 @@
 @media (max-width: 499px) {
   .BuildControls {
     width: 100%;
-    height: 110vh;
+    height: 80vh;
+    margin: 0px 2px;
   }
 
   .BuildControlsTitleContainer {
     margin: 0px;
     padding: 0px;
+    height: auto;
+  }
+
+  .BuildControlsTitle {
+    padding: 0px 8px;
   }
 }

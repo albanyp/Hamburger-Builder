@@ -5,10 +5,11 @@ import axios from "../../axios-orders";
 import WithErrorHandler from "../../hoc/WithErrorHandler/WithErrorHandler";
 import * as actions from "../../store/actions/index";
 import Spinner from "../../components/UI/Spinner/Spinner";
+import classes from "./Orders.module.css";
 
 const Orders = (props) => {
   const { onFetchOrders, token, userId } = props;
-
+  
    useEffect(() => {
     onFetchOrders(token, userId);
    }, [onFetchOrders, token, userId]);
@@ -24,9 +25,13 @@ const Orders = (props) => {
           />
         ));
     }
+    
     return (
-      <div>
-        {orders}
+      <div className={classes.OrdersContainer}>
+        <p className={classes.OrdersTitle}>Your Orders!</p>
+        <div className={classes.Orders}>
+          {orders}
+        </div>
       </div>
     );
 };
@@ -37,6 +42,8 @@ const mapStateToProps = state => {
     loading: state.order.loading,
     token: state.auth.token,
     userId: state.auth.userId,
+    month: state.order.month,
+    day: state.order.day,
   }
 }
 

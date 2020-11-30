@@ -1,19 +1,67 @@
-.ContactData {
-  margin: 20px auto;
-  width: 80%;
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400;500;600&display=swap");
+
+.ContactDataContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 56px);
   text-align: center;
   box-shadow: 0 2px 3px #ccc;
-  border: 1px solid #eee;
-  padding: 10px;
+  border: 2px solid #f2f2f2;
   box-sizing: border-box;
+  margin-top: 54px;
+  padding: 20px 0px;
+  background-color: #d93232;
+  overflow-y: auto;
+}
+
+.ContactData {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  background-color: #f2f2f2;
+  border-radius: 35px 0px 35px 0px;
+}
+
+.FormContainer {
+  width: 60%;
+}
+
+.FormTitle {
+  font-family: "Caveat", cursive;
+  font-size: 54px;
+  font-weight: bold;
+  margin: 10px 0px 0px;
 }
 
 .Input {
   display: block;
 }
 
-@media (min-width: 600px) {
+@media (max-width: 499px) {
+  .ContactDataContainer {
+    margin: 0;
+    height: 70vh;
+  }
+
   .ContactData {
-    width: 500px;
+    width: 90%;
+  }
+
+  .FormContainer {
+    width: 90%;
+  }
+
+  .FormTitle {
+    font-size: 36px;
+  }
+
+  .ContactData p {
+    color: #f2a30f;
+    font-size: 28px;
   }
 }

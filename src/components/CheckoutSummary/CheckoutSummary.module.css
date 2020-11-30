@@ -1,5 +1,26 @@
 .CheckoutSummary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
-  width: 80%;
+  width: 50%;
   margin: auto;
+}
+
+.BurgerSummaryContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.BurgerSummary {
+  width: 100%;
+}
+
+@media (max-width: 499px) {
+  .CheckoutSummary {
+    width: 100%;
+  }
 }

@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400;500;600&display=swap");
+
+.OrdersContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0px 56px;
+  margin-top: 56px;
+  height: calc(100vh - 56px);
+  overflow-y: auto;
+  background-color: #d93232;
+}
+
+.OrdersTitle {
+  align-self: start;
+  font-size: 60px;
+  font-family: "Caveat", cursive;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 34px;
+  width: 100%;
+}
+
+.Orders {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+@media (max-width: 499px) {
+  .OrdersContainer {
+    height: 100%;
+  }
+
+  .OrdersTitle {
+    font-size: 48px;
+    padding: 12px 0px;
+    margin: 0;
+  }
+}

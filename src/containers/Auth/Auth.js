@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faKey, faEnvelope, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
 import Input from "../../components/UI/Input/Input";
 import Button from "../../components/UI/Button/Button";
@@ -11,7 +13,6 @@ import * as actions from "../../store/actions/index";
 
 const Auth = (props) => {
    const [authForm, setAuthForm] = useState({
-        controls: {
             email: {
                 elementType: "input",
                 elementConfig: {
@@ -41,7 +42,7 @@ const Auth = (props) => {
                 touched: false,
               },
         },
-      })
+    );
 
     const [isSignedUp, setIsSignedUp] = useState(true);
 
@@ -67,8 +68,8 @@ const Auth = (props) => {
 
     const submitHandler = (event) => {
       event.preventDefault();
-      props.onAuth(authForm.controls.email.value, 
-                        authForm.controls.password.value,
+      props.onAuth(authForm.email.value, 
+                        authForm.password.value,
                         isSignedUp);
     };
 
@@ -81,19 +82,41 @@ const Auth = (props) => {
           formElementsArray.push({
             id: key,
             config: authForm[key],
-          })
+          });
         }
 
-        let form = formElementsArray.map(formElement => (
-            <Input key={formElement.id}
-            elementType={formElement.config.elementType}
-            elementConfig={formElement.config.elementConfig}
-            value={formElement.config.value} 
-            invalid={!formElement.config.valid}
-            shouldValidate={formElement.config.validation}
-            touched={formElement.config.touched}
-            changed={(event) => inputChangeHandler(event, formElement.id)} />
-        ))
+        let form = formElementsArray.map(formElement => {
+          const elementNameFirstLetter = formElement.id.charAt(0).toUpperCase();
+          const nameWithoutLetter = formElement.id.slice(1);
+          const labelName = `${elementNameFirstLetter}${nameWithoutLetter}`;
+          const iconStyle = {
+            fontSize: "16px",
+            color: "#F2A30F",
+            padding: "0px 6px",
+          }
+          return (
+            <div className={classes.FormItemContainer}>
+              <p className={classes.FormLabel}>
+                {labelName === "Email" ? 
+                    <FontAwesomeIcon icon={faEnvelope} style={iconStyle}/> :
+                    <FontAwesomeIcon icon={faKey} style={iconStyle}/>
+                }
+                {labelName}
+              </p>
+              <Input 
+                className={classes.FormInput}
+                key={formElement.id}
+                elementType={formElement.config.elementType}
+                elementConfig={formElement.config.elementConfig}
+                value={formElement.config.value} 
+                invalid={!formElement.config.valid}
+                shouldValidate={formElement.config.validation}
+                touched={formElement.config.touched}
+                changed={(event) => inputChangeHandler(event, formElement.id)} 
+              />
+            </div>
+          )
+        });
 
         if(props.loading){
           form = <Spinner />;
@@ -113,19 +136,36 @@ const Auth = (props) => {
           authRedirect = <Redirect to={props.authRedirect} />;
         }
 
-
         return (
+        <div className={classes.AuthContainer}>
           <div className={classes.Auth}>
             {authRedirect}
             {errorMessage}
-            <form onSubmit={(event) => submitHandler(event)}>
+            <p className={classes.FormUserIcon}>             
+              <FontAwesomeIcon icon={faUserCircle} />
+            </p>
+            <p className={classes.FormTitle}>Let us know you!</p>
+            <form 
+              className={classes.FormContainer}
+              onSubmit={(event) => submitHandler(event)}
+            >
               {form} 
-              <Button btnType="Success">SUBMIT</Button>
+              <Button 
+                className={classes.FormButton} 
+                btnType="Success"
+              >
+                  SUBMIT
+              </Button>
             </form>
-            <Button btnType="Danger" clicked={switchAuthModeHandler}>
-              SWITCH TO {isSignedUp ? "SIGN IN" : "SIGN UP" }
+            <Button 
+              className={classes.FormButton} 
+              btnType="Danger" 
+              clicked={switchAuthModeHandler}
+            >
+              SWITCH TO {isSignedUp ? "SIGN UP" : "SIGN IN" }
             </Button>
           </div>
+        </div>
         )
     }
 

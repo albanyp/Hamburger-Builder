@@ -6,7 +6,7 @@
   left: 0;
   top: 0;
   z-index: 200;
-  background-color: #f2f2f2;
+  background-color: #ffffff;
   padding: 32px 0px;
   box-sizing: border-box;
   transition: all 0.5s ease-out;
@@ -28,8 +28,8 @@
 
 .Logo {
   display: flex;
-  justify-content: start;
-  margin: 0px 24px;
+  justify-content: flex-start;
+  margin: 0px 12px;
   height: 12%;
   margin-bottom: 16px;
 }

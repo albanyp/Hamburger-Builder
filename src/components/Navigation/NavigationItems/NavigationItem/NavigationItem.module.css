@@ -7,13 +7,13 @@
 }
 
 .NavigationItem a {
-  color: #d93232;
+  color: #414141;
+  font-weight: bold;
   text-decoration: none;
-  font-weight: 400;
   height: 100%;
-  padding: 8px 24px;
-  margin: 0px 12px;
-  border-bottom: 2px solid #414141;
+  padding: 12px 24px;
+  margin: 0px 16px;
+  border-bottom: 1.5px solid #d93232;
   box-sizing: border-box;
   display: block;
 }
@@ -22,9 +22,10 @@
 .NavigationItem a:active,
 .NavigationItem a.active {
   margin-left: -16px;
+  font-weight: bold;
   color: #414141;
-  border-bottom: 2px solid #d93232;
-  transition: all 0.5s ease-out;
+  border-bottom: 1.5px solid #d93232;
+  transition: all 0.3s ease-out;
 }
 
 @media (min-width: 500px) {
@@ -40,6 +41,7 @@
   .NavigationItem a {
     color: white;
     height: 100%;
+    font-weight: normal;
     padding: 16px 10px;
     border-bottom: 4px solid #f2a30f;
   }
@@ -47,7 +49,7 @@
   .NavigationItem a:hover,
   .NavigationItem a:active,
   .NavigationItem a.active {
-    margin-left: 0px;
+    margin-left: 16px;
     background-color: #f2f2f2;
     border-bottom: 4px solid #d93232;
     color: #414141;

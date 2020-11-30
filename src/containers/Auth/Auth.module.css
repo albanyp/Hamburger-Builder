@@ -1,19 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400;500;600&display=swap");
+
+.AuthContainer {
+  margin: 56px 0px;
+  position: absolute;
+  width: 100vw;
+  height: calc(100vh - 56px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d93232;
+}
+
 .Auth {
-  margin: 20px auto;
-  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 45%;
   text-align: center;
-  box-shadow: 0 2px 3px #ccc;
+  box-shadow: 0 2px 3px #414141;
   border: 1px solid #eee;
+  border-radius: 35px 0px 35px 0px;
   padding: 10px;
   box-sizing: border-box;
+  background-color: #f2f2f2;
 }
 
-.Input {
+.FormContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.FormTitle {
+  font-family: "Caveat", cursive;
+  font-size: 32px;
+  font-weight: bold;
+  padding: 4px 0px;
+  margin: 0px;
+}
+
+.FormItemContainer {
+  width: 100%;
+  margin: 16px 0px;
+}
+
+.FormUserIcon {
+  color: #f2a30f;
+  font-size: 64px;
+  margin: 0;
+}
+
+.FormLabel {
+  text-align: left;
+  padding: 0px 10px;
+  margin: 0;
+  color: #414141;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+}
+
+.FormInput {
   display: block;
+  width: 80%;
 }
 
-@media (min-width: 600px) {
+.FormButton {
+  align-self: center;
+}
+
+@media (max-width: 499px) {
+  .AuthContainer {
+    justify-content: center;
+    align-items: center;
+  }
+
   .Auth {
-    width: 500px;
+    height: 80vh;
+    width: 90%;
+  }
+
+  .FormTitle {
+    font-size: 26px;
+    margin: 5px 0px 10px 0px;
+  }
+
+  .FormItemContainer {
+    margin: 16px 0px;
+  }
+
+  .FormUserIcon {
+    font-size: 56px;
+  }
+
+  .FormLabel {
+    font-size: 14px;
+  }
+
+  .FormInput {
+    display: block;
+    width: 80%;
+    margin: 5px;
+  }
+
+  .FormIcon {
+    font-size: 16px;
+    color: #f2a30f;
+    padding: 0px 6px;
   }
 }
+
+/* @media (min-width: 1024px) {
+  .AuthContainer {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Auth {
+    height: 65vh;
+    width: 45%;
+  }
+
+  .FormTitle {
+    font-size: 46px;
+    margin: 5px 0px 10px 0px;
+  }
+
+  .FormItemContainer {
+    margin: 16px 0px;
+  }
+
+  .FormUserIcon {
+    font-size: 76px;
+  }
+
+  .FormLabel {
+    font-size: 24px;
+  }
+
+  .FormInput {
+    display: block;
+    width: 80%;
+    margin: 5px;
+  }
+} */

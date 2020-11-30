@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import classes from "./Input.module.css";
 
 const Input = (props) => {
@@ -38,10 +40,25 @@ const Input = (props) => {
     default:
       inputElement = <input className={inputClasses.join(" ")} {...props.elementConfig} value={props.value}/>;
   }
+
+  const iconStyle = {   
+    color:"#f2a30f",
+    borderRight: "1px solid #f2f2f2",
+    width: "30px",
+    fontSize: "20px",
+    padding: "8px",
+  }
+
   return (
     <div className={classes.Input}>
       <label className={classes.Label}>{props.label}</label>
-      {inputElement}
+      <div className={classes.InputElementContainer}>
+        {props.icon ? 
+          <FontAwesomeIcon icon={props.icon} style={iconStyle}/>
+          : null
+        }
+        {inputElement}
+      </div>
       {validationError}
     </div>
   );

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "../../axios-orders";
-import Aux from "../../hoc/Auxiliary";
 import Burger from "../../components/Burger/Burger";
 import BuildControls from "../../components/Burger/BuildControls/BuildControls";
 import Modal from "../../components/UI/Modal/Modal.js";
@@ -99,10 +98,12 @@ const BurgerBuilder = ( props ) => {
             isAuth={isAuthenticated}
             className={classes.BuildControlsLayout}
           />
-          <Burger 
+          <div className={classes.BurgerContainer} >
+            <Burger 
             ingredients={ings} 
             className={classes.BurgerLayout}
-          />
+            />
+          </div>
         </div>
       );
       orderSummary = (
@@ -131,25 +132,5 @@ const BurgerBuilder = ( props ) => {
     );
   }
 
-// const mapStateToProps = state => {
-//   return {
-//     ings: state.burgerBuilder.ingredients,
-//     price: state.burgerBuilder.totalPrice,
-//     error: state.burgerBuilder.error,
-//     isAuthenticated: state.auth.token !== null,
-//   }
-// }
-
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     onIngredientAdded: (ingName) => dispatch(actions.addIngredient(ingName)),
-//     onIngredientDeleted: (ingName) => dispatch(actions.removeIngredient(ingName)),
-//     onInitIngredients: () => dispatch(actions.initIngredients()),
-//     onInitPurchase: () => dispatch(actions.purchaseInit()),
-//     onSetAuthRedirectPath: (path) => dispatch(actions.setAuthRedirectPath(path)),
-//   }
-// }
-
 export default WithErrorHandler(BurgerBuilder, axios);
  
-// export default connect(mapStateToProps, mapDispatchToProps)(WithErrorHandler(BurgerBuilder, axios));

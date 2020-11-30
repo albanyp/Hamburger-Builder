@@ -1,4 +1,7 @@
 import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHamburger } from '@fortawesome/free-solid-svg-icons';
+
 import classes from "./Order.module.css";
 
 const Order = (props) => {
@@ -12,25 +15,30 @@ const Order = (props) => {
 
   const ingredientOutput = ingredients.map((ig) => {
     return (
-      <span
-        style={{
-          textTransform: "capitalize",
-          display: "inline-block",
-          margin: "0 8px",
-          border: "1px solid #ccc",
-          padding: "5px",
-        }}
+      <div
         key={ig.name}
+        className={classes.IngredientsListItem}
       >
         {ig.name} ({ig.amount})
-      </span>
+      </div>
     );
   });
+
   return (
     <div className={classes.Order}>
-      <p>Ingredients: {ingredientOutput}</p>
-      <p>
-        Price: <strong>USD {Number.parseFloat(props.price).toFixed(2)}</strong>
+      <FontAwesomeIcon 
+        icon={faHamburger} 
+        style={{
+          color: "#F2A30F",
+          fontSize: "30px",
+        }}
+      />
+      <div className={classes.IngredientsList}>
+      <p>Ingredients:</p> 
+        {ingredientOutput}
+      </div>
+      <p className={classes.OrderPrice}>
+        <strong>USD {Number.parseFloat(props.price).toFixed(2)}</strong>
       </p>
     </div>
   );

@@ -1,9 +1,11 @@
 import React from "react";
-import { Route, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+
 import CheckoutSummary from "../../components/CheckoutSummary/CheckoutSummary";
 import ContactData from "../ContactData/ContactData";
-import { connect } from "react-redux";
-// import * as actions from "../../store/actions/index";
+
+import classes from "./Checkout.module.css";
 
 const Checkout = (props) => {
 
@@ -17,19 +19,15 @@ const Checkout = (props) => {
 
     let summary = <Redirect to="/" />
     if(props.ings) {
-      const purchasedRedirect = props.purchased ? <Redirect to="/" /> : null;
       summary = (
-        <div>
-          {purchasedRedirect}
+        <div className={classes.Checkout}>
           <CheckoutSummary
+            className={classes.Summary}
             ingredients={props.ings}
             checkoutCancelled={checkoutCancelledHandler}
             checkoutContinued={checkoutContinuedHandler}
           />
-          <Route
-            path={`${props.match.path}/contact-data`}
-            component={ContactData}
-          />
+          <ContactData className={classes.ContactData}/>
         </div>
       );
     }
@@ -50,13 +48,3 @@ const mapStateToProps = state => {
 
 
 export default connect(mapStateToProps)(Checkout);
-
-
-/*
-- If mapDispatchToProps had to be used, mapStateToProps
-  should be passed as null, since mapDispatchToProps
-  needs to be second argument
-  connect(null, mapDispatchToProps)(Checkout);
-
-
-*/

@@ -2,9 +2,10 @@
 
 .Logo {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  height: 80%;
+  height: 90%;
+  width: 100%;
   background-color: white;
   border-radius: 5px;
   box-sizing: border-box;
@@ -27,8 +28,8 @@
 
 @media (max-width: 499px) {
   .Title {
-    font-size: 20px;
-    padding: 3px 2px 0px;
+    font-size: 28px;
+    padding: 3px 2px 0px 0px;
   }
 
   .Logo img {

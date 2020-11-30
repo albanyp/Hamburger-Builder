@@ -1,8 +1,46 @@
 .Order {
-  width: 80%;
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 3px #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 240px;
   padding: 10px;
-  margin: 10px auto;
+  margin: 10px 15px;
   box-sizing: border-box;
+  border: 1px solid #414141;
+  box-shadow: 0 2px 2px #414141;
+  background-color: #f2f2f2;
+}
+
+.IngredientsList p {
+  padding-right: 76px;
+  margin-right: 12px;
+}
+
+.IngredientsList {
+  display: flex;
+  flex-direction: column;
+  padding: 4px;
+  margin: 4px;
+}
+
+.IngredientsListItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+  margin: 8px;
+  border: 1px solid #ccc;
+  border-radius: 25% 0px 25% 0px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #414141;
+  padding: 8px 24px;
+  background-color: #fdbd45;
+}
+
+.OrderPrice {
+  padding: 0;
+  margin: 10px;
+  align-self: center;
 }
